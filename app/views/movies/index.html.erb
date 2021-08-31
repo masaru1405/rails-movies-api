@@ -1,0 +1,11 @@
+<h1>Movie - Index</h1>
+
+<%= render 'menu' %>
+
+<p><%#= @movies['results'] %></p>
+
+<% @movies['results'].each do |movie| %>
+   <p><%= movie['title'] %></p>
+<% end %>
+
+
