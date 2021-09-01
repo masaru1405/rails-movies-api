@@ -2,16 +2,20 @@
 
 <%= render 'menu' %>
 
-<p><%#= @movies['results'] %></p>
-
+<%
+=begin%>
 <% @movies['results'].each do |movie| %>
    <p><%= movie['title'] %></p>
 <% end %>
+<%
+=end%>
 
-<hr>
 <% @search_multi['results'].each do |s| %>
    <% if s['media_type'] == 'tv' %>
       <p><%= s['name'] %> | <%= s['media_type'] %></p> 
+      <%= image_tag("https://image.tmdb.org/t/p/w500/#{s['poster_path']}" ,
+      width: "94", height: "141")
+      %>
       <hr>
    <% elsif s['media_type'] == 'person' %>
       <p><%= s['name'] %> | <%= s['media_type'] %></p> 
