@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root "movies#index"
+  root "home#index"
+  get '/persons', to: 'persons#index'
   get '/movies', to: "movies#index"
-  get 'home/index'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

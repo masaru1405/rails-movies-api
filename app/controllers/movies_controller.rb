@@ -3,9 +3,9 @@ class MoviesController < ApplicationController
   #before_action :count_by_type
 
   def index
-    #@movies = @movie_api.search_movie('comics', 2)
     @page = params.fetch(:page, 1).to_i
-    @search_multi = @movie_api.search_multi('mary', @page)
+    @movies = @movie_api.search_movie('comics', @page)
+    #@search_multi = @movie_api.search_multi('mary', @page)
     #@search_all = @movie_api.search_multi_all('mary')
   end
 

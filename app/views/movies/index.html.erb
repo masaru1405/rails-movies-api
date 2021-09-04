@@ -11,6 +11,8 @@
 <%
 =end%>
 
+<%
+=begin%>
 <% @search_multi['results'].each do |s| %>
    <% if s['media_type'] == 'tv' %>
       <p><%= s['name'] %> | <%= s['media_type'] %></p> 
@@ -29,6 +31,19 @@
       %>
       <hr>
    <% end %>
+<% end %>
+<%
+=end%>
+
+<% @movies['results'].each do |movie| %>
+   <div>
+      <h6><%= movie['title'] %></h6>
+      <% if movie['poster_path'] %>
+         <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}", width: "94", height: "141" %>
+      <% else %>
+         <%= image_tag "notfound.png", width: "94", height: "141" %>
+      <% end %>
+   </div>
 <% end %>
 
 <div>

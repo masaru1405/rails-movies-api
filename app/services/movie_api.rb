@@ -9,6 +9,10 @@ class MovieApi
       self.class.get('/search/movie?api_key=' + API_KEY + '&query=' + query + '&language=' + language + '&page= ' + page.to_s)
    end
 
+   def search_person(query, page=1, language='pt-BR')
+      self.class.get('/search/person?api_key=' + API_KEY + '&query=' + query + '&language' + language + '&page=' + page.to_s)
+   end
+
    def search_multi(query, page=1, language='pt-BR')
       self.class.get('/search/multi?api_key=' + API_KEY + '&query=' + query + '&language=' + language + '&page=' + page.to_s)
    end

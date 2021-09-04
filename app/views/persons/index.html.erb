@@ -1,0 +1,19 @@
+<h1>Person#index</h1>
+<p>Find me in app/views/person/index.html.erb</p>
+
+<% @persons['results'].each do |person| %>
+   <div>
+      <h6><%= person['name'] %></h6>
+      <% if person['profile_path'] %>
+         <%= image_tag "https://image.tmdb.org/t/p/w500/#{person['profile_path']}", width: "70", height: "90" %>
+      <% else %>
+         <%= image_tag "people.png", width: "70", height: "90" %>
+      <% end %>
+   </div>
+<% end %>
+
+<div>
+   <%= link_to "Previous", persons_path(page: @page-1) %> |
+   <%= link_to "Next", persons_path(page: @page+1) %>
+</div>
+
