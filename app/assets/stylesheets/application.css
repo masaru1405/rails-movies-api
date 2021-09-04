@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ /*
+ .btn {
+   background-color: DodgerBlue;
+   border: none;
+   color: white;
+   cursor: pointer;
+ }*/
+ 
+ /* Darker background on mouse-over */
+
+ .btn{
+   box-shadow: 2px 2px #888888;
+ }
+ 
+ .btn:hover {
+   background-color: #DAF9FE;
+ }
+
+#icon_info{
+   font-size: 1em;
+}

@@ -43,6 +43,31 @@
       <% else %>
          <%= image_tag "notfound.png", width: "94", height: "141" %>
       <% end %>
+
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-outline-light text-dark" data-toggle="modal" data-target="#infoModal">
+         <i class="bi bi-info-circle" id="icon_info"></i>
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="infoModal">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h4 class="modal-title">Title</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+
+               <!-- Modal body -->
+               <div class="modal-body">
+                  Lorem Ipsum...
+               </div>
+
+            </div>
+         </div>
+      </div>
    </div>
 <% end %>
 
