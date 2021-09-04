@@ -2,15 +2,48 @@
 
 <%= render 'menu' %>
 
+<%#= @search_all.size %>
+
 <%
 =begin%>
-<% @movies['results'].each do |movie| %>
-   <p><%= movie['title'] %></p>
-<% end %>
+<% count_types(@search_multi) %>
+<p>Movies: <%= @movie %> | TVs: <%= @tv %> | Persons: <%= @person %></p>
 <%
 =end%>
 
 <% @search_multi['results'].each do |s| %>
+   <% if s['media_type'] == 'tv' %>
+      <p><%= s['name'] %> | <%= s['media_type'] %></p> 
+      <%= image_tag("https://image.tmdb.org/t/p/w500/#{s['poster_path']}" ,
+      width: "94", height: "141")
+      %>
+      <hr>
+   <% elsif s['media_type'] == 'person' %>
+      <p><%= s['name'] %> | <%= s['media_type'] %></p> 
+      <%= image_tag("https://image.tmdb.org/t/p/w500/#{s['profile_path']}", width: "70", height: "90")%>
+      <hr>
+   <% else %> <!--Movie-->
+      <p><%= s['title'] %> | <%= s['media_type'] %></p> 
+      <%= image_tag("https://image.tmdb.org/t/p/w500/#{s['poster_path']}" ,
+      width: "94", height: "141")
+      %>
+      <hr>
+   <% end %>
+<% end %>
+
+<div>
+   <%= link_to "Previous", movies_path(page: @page-1) %> |
+   <%= link_to "Next", movies_path(page: @page+1) %>
+</div>
+
+
+
+
+
+
+<% 
+=begin%>
+<% @search_all.each do |s| %>
    <% if s['media_type'] == 'tv' %>
       <p><%= s['name'] %> | <%= s['media_type'] %></p> 
       <%= image_tag("https://image.tmdb.org/t/p/w500/#{s['poster_path']}" ,
@@ -32,5 +65,7 @@
    <% end %>
 <% end %>
 
+<%
+=end%>
 
 
