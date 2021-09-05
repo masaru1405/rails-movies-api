@@ -17,6 +17,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script>
+      
+
+      $(document).ready(function(){
+        $("#close_modal").click(function(){
+          $(".close").removeData();
+          console.log('oi');
+        })
+      })
+
+    
+
+    </script>
   </head>
 
   <body class="container-fluid">

@@ -14,4 +14,8 @@ module MoviesHelper
       end
    end
 
+   def ola
+      "ola"
+   end
+
 end

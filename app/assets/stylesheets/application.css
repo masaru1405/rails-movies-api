@@ -35,3 +35,13 @@
 #icon_info{
    font-size: 1em;
 }
+
+.card{
+  margin-bottom: 15px;
+  box-shadow: 3px 3px rgba(206, 206, 206, 0.3);
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}

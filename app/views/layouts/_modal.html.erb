@@ -1,0 +1,27 @@
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-outline-light text-dark" data-toggle="modal" data-target="#infoModal">
+   <i class="bi bi-info-circle" id="icon_info"></i>
+</button>
+
+<!-- The Modal -->
+<div class="modal fade" id="infoModal">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+         <!-- Modal Header -->
+         <div class="modal-header">
+            <h4 class="modal-title"><%= title %> (<%= year %>)</h4>
+            <button type="button" class="close" data-dismiss="modal" id="close_modal">&times;</button>
+         </div>
+
+         <!-- Modal body -->
+         <div class="modal-body">
+            Lorem Ipsum...
+         </div>
+
+      </div>
+   </div>
+</div>
+
+<p><%= title %></p>
+

@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
     @movies = @movie_api.search_movie('comics', @page)
     #@search_multi = @movie_api.search_multi('mary', @page)
     #@search_all = @movie_api.search_multi_all('mary')
+  
   end
 
   private

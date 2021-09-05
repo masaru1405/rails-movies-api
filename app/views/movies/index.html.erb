@@ -1,7 +1,5 @@
 <h1>Movie - Index</h1>
 
-<%= render 'menu' %>
-
 <%#= @search_all.size %>
 
 <%
@@ -36,45 +34,46 @@
 =end%>
 
 <% @movies['results'].each do |movie| %>
+
+   <div class="card">
+      <div class="card-horizontal">
+         <div class="img-square-wrapper">
+            <% if movie['poster_path'] %>
+               <%= image_tag "https://image.tmdb.org/t/p/w94_and_h141_bestv2/#{movie['poster_path']}", class: "card-img-left",width: "94", height: "141" %>
+            <% else %>
+               <%= image_tag "notfound.png", class: "card-img-left", width: "94", height: "141" %>
+            <% end %>
+         </div>
+         <div class="card-body">
+            <h5 class="card-title"><%= movie['title'] %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+   </div>
+
+
+   <!--
    <div>
       <h6><%= movie['title'] %></h6>
       <% if movie['poster_path'] %>
-         <%= image_tag "https://image.tmdb.org/t/p/w500/#{movie['poster_path']}", width: "94", height: "141" %>
+         <%= image_tag "https://image.tmdb.org/t/p/w94_and_h141_bestv2/#{movie['poster_path']}" %>
       <% else %>
          <%= image_tag "notfound.png", width: "94", height: "141" %>
       <% end %>
-
-      <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-outline-light text-dark" data-toggle="modal" data-target="#infoModal">
-         <i class="bi bi-info-circle" id="icon_info"></i>
-      </button>
-
-      <!-- The Modal -->
-      <div class="modal fade" id="infoModal">
-         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-
-               <!-- Modal Header -->
-               <div class="modal-header">
-                  <h4 class="modal-title">Title</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-               </div>
-
-               <!-- Modal body -->
-               <div class="modal-body">
-                  Lorem Ipsum...
-               </div>
-
-            </div>
-         </div>
-      </div>
+      <%#= render 'layouts/modal', title: movie['title'], year: movie['release_date'].slice(0..3) %>
+      <%#= render 'layouts/modal2' , title: movie['title'], count: @count %>
    </div>
+   -->
+
+
 <% end %>
 
 <div>
    <%= link_to "Previous", movies_path(page: @page-1) %> |
    <%= link_to "Next", movies_path(page: @page+1) %>
 </div>
+
 
 
 

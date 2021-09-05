@@ -1,0 +1,18 @@
+<h1>Tvs#index</h1>
+<p>Find me in app/views/tvs/index.html.erb</p>
+
+<% @tvs['results'].each do |tv| %>
+   <div>
+      <h6><%= tv['name'] %></h6>
+      <% if tv['poster_path'] %>
+         <%= image_tag "https://image.tmdb.org/t/p/w94_and_h141_bestv2/#{tv['poster_path']}" %>
+      <% else %>
+         <%= image_tag "notfound.png", width: "94", height: "141" %>
+      <% end %>
+   </div>
+<% end %>
+
+<div>
+   <%= link_to "Previous", tvs_path(page: @page-1) %> |
+   <%= link_to "Next", tvs_path(page: @page+1) %>
+</div>

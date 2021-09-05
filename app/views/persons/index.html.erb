@@ -5,10 +5,11 @@
    <div>
       <h6><%= person['name'] %></h6>
       <% if person['profile_path'] %>
-         <%= image_tag "https://image.tmdb.org/t/p/w500/#{person['profile_path']}", width: "70", height: "90" %>
+         <%= image_tag "https://image.tmdb.org/t/p/w90_and_h90_face/#{person['profile_path']}" %>
       <% else %>
-         <%= image_tag "people.png", width: "70", height: "90" %>
+         <%= image_tag "people.png", width: "90", height: "90" %>
       <% end %>
+      <%#= render 'layouts/modal' %>
    </div>
 <% end %>
 

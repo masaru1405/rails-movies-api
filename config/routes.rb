@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
+  get '/tvs', to: 'tvs#index'
   get '/persons', to: 'persons#index'
   get '/movies', to: "movies#index"
   
