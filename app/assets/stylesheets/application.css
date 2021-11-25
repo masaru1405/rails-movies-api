@@ -36,12 +36,51 @@
    font-size: 1em;
 }
 
-.card{
+/*Movie*/
+.card_movie .card{
   margin-bottom: 15px;
   box-shadow: 3px 3px rgba(206, 206, 206, 0.3);
 }
 
-.card-horizontal {
+.card_movie .card-horizontal {
   display: flex;
   flex: 1 1 auto;
+}
+
+/*Person*/
+.card_person .card{
+  margin-bottom: -20px;
+ 
+}
+.card_person .card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+.card_person .card-img-left, .no_image{
+  border-radius: 15%;
+}
+
+/*TV*/
+.card_tv .card{
+  margin-bottom: 15px;
+  /*box-shadow: 3px 3px rgba(206, 206, 206, 0.3);*/
+  border-radius: 15px;
+}
+.card_tv .card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+.card_tv .card-img-left, .no_image{
+  border-radius: 15px 0px 0px 15px;
+}
+
+/*Keywords*/
+.keywords_links{
+  color: black;
+}
+.keywords_links:hover{
+  text-decoration: none;
+}
+.keywords_text{
+  margin-bottom: 3px;
 }

@@ -33,9 +33,10 @@
 <%
 =end%>
 
-<% @movies['results'].each do |movie| %>
+<% @movies.each do |movie| %>
 
-   <div class="card">
+   <div class="card_movie">
+      <div class="card">
       <div class="card-horizontal">
          <div class="img-square-wrapper">
             <% if movie['poster_path'] %>
@@ -45,13 +46,21 @@
             <% end %>
          </div>
          <div class="card-body">
-            <h5 class="card-title"><%= movie['title'] %></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title"><%= movie['title'] %> | id: <%= movie['id'] %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+               <%= format_date_br(movie['release_date']) %>
+            </h6>
+            <p class="card-text">
+               <% if movie['overview'] != "" %>
+                  <%= movie['overview'].truncate(200) %>
+               <% else %>
+                  Não há sinopse traduzida para o português.
+               <% end %>
+            </p>
         </div>
       </div>
    </div>
-
+   </div>
 
    <!--
    <div>
@@ -65,8 +74,6 @@
       <%#= render 'layouts/modal2' , title: movie['title'], count: @count %>
    </div>
    -->
-
-
 <% end %>
 
 <div>

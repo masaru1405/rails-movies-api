@@ -4,7 +4,8 @@ class MoviesController < ApplicationController
 
   def index
     @page = params.fetch(:page, 1).to_i
-    @movies = @movie_api.search_movie('comics', @page)
+    @movies_search = @movie_api.search_movie('comics', @page)
+    @movies = get_movies
     #@search_multi = @movie_api.search_multi('mary', @page)
     #@search_all = @movie_api.search_multi_all('mary')
   
@@ -14,6 +15,16 @@ class MoviesController < ApplicationController
   def service_movies
     @movie_api = MovieApi.new
   end
+
+  def get_movies
+    get_movies = []
+    @movies_search['results'].each do |movie|
+      temp = @movie_api.get_movie(movie['id'])
+      get_movies.push(temp)
+    end
+    return get_movies
+  end
+
 
   def count_by_type
     flag = false

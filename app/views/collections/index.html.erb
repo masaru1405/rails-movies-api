@@ -1,0 +1,26 @@
+<h1>Collections#index</h1>
+<p>Find me in app/views/collections/index.html.erb</p>
+
+<% @collections['results'].each do |collection| %>
+   <div class="card_movie">
+      <div class="card">
+      <div class="card-horizontal">
+         <div class="img-square-wrapper">
+            <% if collection['backdrop_path'] %>
+               <%= image_tag "https://image.tmdb.org/t/p/w94_and_h141_bestv2/#{collection['backdrop_path']}", class: "card-img-left",width: "94", height: "141" %>
+            <% else %>
+               <%= image_tag "notfound.png", class: "card-img-left", width: "94", height: "141" %>
+            <% end %>
+         </div>
+         <div class="card-body">
+            <h5 class="card-title"><%= collection['original_name'] %></h5>
+        </div>
+      </div>
+   </div>
+   </div>
+<% end %>
+
+<div>
+   <%= link_to "Previous", collections_path(page: @page-1) %> |
+   <%= link_to "Next", collections_path(page: @page+1) %>
+</div>

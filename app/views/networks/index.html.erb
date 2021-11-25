@@ -1,0 +1,21 @@
+<h1>Networks#index</h1>
+<p>Find me in app/views/networks/index.html.erb</p>
+
+<% if @networks['results'] != nil %>
+   <table class="table">
+      <tbody>
+         <%= @networks['results'].each do |network| %>
+            <tr>
+               <td>
+                  <%= network['name']%> 
+                  <% if network['logo_path'] %>
+                     <%=image_tag "/t/p/h30#{network['logo_path']}"%>
+                  <% end %>
+               </td>
+            </tr>
+         <% end %>
+      </tbody>
+   </table>
+<% else %>
+   <p>Sem informações</p>
+<% end %>

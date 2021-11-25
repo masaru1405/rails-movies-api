@@ -1,13 +1,9 @@
-class PersonsController < ApplicationController
+class KeywordsController < ApplicationController
   before_action :service_movies
-  
+
   def index
     @page = params.fetch(:page, 1).to_i
-    @persons = @movie_api.search_person('mary', @page)
-  end
-
-  def show
-
+    @keywords = @movie_api.search_keyword('mary', @page)
   end
 
   private

@@ -1,0 +1,39 @@
+<h1>Search#search_movies</h1>
+
+
+<% @movies.each do |movie| %>
+
+   <div class="card_movie">
+      <div class="card">
+      <div class="card-horizontal">
+         <div class="img-square-wrapper">
+            <% if movie['poster_path'] %>
+               <%= image_tag "https://image.tmdb.org/t/p/w94_and_h141_bestv2/#{movie['poster_path']}", class: "card-img-left",width: "94", height: "141" %>
+            <% else %>
+               <%= image_tag "notfound.png", class: "card-img-left", width: "94", height: "141" %>
+            <% end %>
+         </div>
+         <div class="card-body">
+            <h5 class="card-title"><%= movie['title'] %> | id: <%= movie['id'] %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+               <%= format_date_br(movie['release_date']) %>
+            </h6>
+            <p class="card-text">
+               <% if movie['overview'] != "" %>
+                  <%= movie['overview'].truncate(200) %>
+               <% else %>
+                  Não há sinopse traduzida para o português.
+               <% end %>
+            </p>
+        </div>
+      </div>
+   </div>
+   </div>
+
+<% end %>
+
+<div>
+   <%= link_to "Previous", movies_path(page: @page-1) %> |
+   <%= link_to "Next", movies_path(page: @page+1) %>
+</div>
+
